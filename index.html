@@ -5,135 +5,304 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portafolio Académico | Lucía Mateo Carpio</title>
     <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #10b981;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --bg-body: #f8fafc;
+            --bg-card: #ffffff;
+            --border: #e2e8f0;
+        }
+
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            line-height: 1.7;
-            color: #2c3e50;
-            max-width: 850px;
-            margin: 0 auto;
-            padding: 40px 24px;
-            background-color: #fdfdfd;
-        }
-        header {
-            margin-bottom: 40px;
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 20px;
-        }
-        h1 {
-            color: #2c3e50;
-            font-size: 2.2rem;
-            margin: 0 0 10px 0;
-            letter-spacing: -0.5px;
-        }
-        .subtitle {
-            color: #7f8c8d;
-            font-size: 1.1rem;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-body);
             margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
+            padding: 0;
         }
-        h2 {
-            color: #2980b9;
-            font-size: 1.4rem;
-            margin-top: 35px;
-            margin-bottom: 15px;
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
         }
-        p {
-            margin: 0 0 16px 0;
-            text-align: justify;
-        }
-        .course-card {
-            background: #ffffff;
-            border-left: 4px solid #3498db;
-            padding: 18px 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-            border-radius: 0 8px 8px 0;
-        }
-        .course-card h3 {
-            margin: 0 0 8px 0;
-            color: #2c3e50;
-            font-size: 1.2rem;
-        }
-        .course-meta {
-            font-size: 0.9rem;
-            color: #7f8c8d;
-            margin-bottom: 8px;
-        }
-        a {
-            color: #3498db;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-        a:hover {
-            color: #2980b9;
-            text-decoration: underline;
-        }
+
         .ascii-banner {
             font-family: monospace;
             white-space: pre;
-            color: #3498db;
+            color: var(--primary);
             line-height: 1.2;
-            font-size: 10px;
-            margin-bottom: 25px;
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 6px;
-            border: 1px solid #e9ecef;
+            font-size: 9px;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #eff6ff 0%, #f5f3ff 100%);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
             overflow-x: auto;
+            text-align: center;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            border-bottom: 4px solid var(--primary);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0 0 10px 0;
+            color: #0f172a;
+            letter-spacing: -0.5px;
+        }
+
+        .subtitle {
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+        }
+
+        section {
+            margin-bottom: 50px;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            color: #0f172a;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 4px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
+
+        .about-card {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        .about-card p {
+            margin: 0;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            text-align: justify;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: var(--primary);
+        }
+
+        .card.partner::before {
+            background-color: var(--secondary);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            margin: 0 0 12px 0;
+            font-size: 1.3rem;
+            color: #0f172a;
+        }
+
+        .meta {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            background: #f1f5f9;
+            padding: 6px 12px;
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin: 0 0 20px 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .btn.partner {
+            color: var(--secondary);
+        }
+
+        .btn:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 640px) {
+            header h1 { font-size: 2rem; }
+            .grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <div class="ascii-banner">
+    <div class="container">
+
+        <div class="ascii-banner">
  _      _   _   ____ ___    _    
 | |    | | | | / ___|_ _|  / \   
 | |    | | | || |    | |  / _ \  
 | |___ | |_| || |___ | | / ___ \ 
 |_____| \___/  \____|___/_/   \_\
+        </div>
+
+        <header>
+            <h1>Lucía Mateo Carpio</h1>
+            <p class="subtitle">Estudiante de Ciencia de Datos | UCSP</p>
+        </header>
+
+        <section>
+            <h2>Sobre Mí</h2>
+            <div class="about-card">
+                <p>¡Hola! Soy estudiante de la carrera de Ciencia de Datos en la Universidad Católica San Pablo (UCSP). Me apasiona explorar el potencial de la tecnología y el análisis matemático para transformarlos en soluciones estratégicas y optimización de procesos. Constantemente busco expandir mis horizontes participando en eventos de innovación, practicando idiomas y colaborando en proyectos del rubro tecnológico.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Mis Asignaturas</h2>
+            <div class="grid">
+                
+                <div class="card">
+                    <div>
+                        <h3>Fundamentos de Programación</h3>
+                        <div class="meta">Docente: Dr. Julio Santisteban Pablo</div>
+                        <p>Desarrollo de la lógica algorítmica y resolución de problemas complejos mediante código estructurado y eficiente.</p>
+                    </div>
+                    <a href="https://www.linkedin.com/in/santisteban" target="_blank" class="btn">→ Perfil del Docente</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Introducción a Ciencias de la Computación</h3>
+                        <div class="meta">Docente: Dr. Ernesto Cuadros Vargas</div>
+                        <p>Comprensión global de la arquitectura de software, computación moderna y sus fundamentos teóricos.</p>
+                    </div>
+                    <a href="https://pe.linkedin.com/in/ecuadrosv" target="_blank" class="btn">→ Perfil del Docente</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Introducción a la Vida Universitaria</h3>
+                        <div class="meta">Docente: Lilian Esperanza Moscoso Prieto</div>
+                        <p>Inmersión en la cultura e identidad universitaria, herramientas de aprendizaje y adaptación académica.</p>
+                    </div>
+                    <a href="https://pe.linkedin.com/in/lilian-moscoso-prieto-53345390" target="_blank" class="btn">→ Perfil de la Docente</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Introducción a Computación</h3>
+                        <div class="meta">Docente: Rosmery Quispe Zavala</div>
+                        <p>Estudio de los elementos introductorios de los sistemas de cómputo y flujos tecnológicos esenciales.</p>
+                    </div>
+                    <a href="#" class="btn">→ Espacio Académico</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Comunicación I</h3>
+                        <div class="meta">Docente: Angel Rodriguez Cruz</div>
+                        <p>Desarrollo de habilidades de expresión oral, comprensión lectora y redacción de textos académicos.</p>
+                    </div>
+                    <a href="https://pe.linkedin.com/in/angel-rodriguez-cruz-58b78b85" target="_blank" class="btn">→ Perfil del Docente</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Lógica</h3>
+                        <div class="meta">Docente: Dra. Ana Lucia Huerta Salinas</div>
+                        <p>Estructuras de razonamiento formal, proposiciones fundamentales y bases lógicas para la ciencia.</p>
+                    </div>
+                    <a href="https://pe.linkedin.com/in/ana-lucia-huerta-salinas-a89600b4" target="_blank" class="btn">→ Perfil de la Docente</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Fundamentos Matemáticos para Computación</h3>
+                        <div class="meta">Docente: Meyber Vargas Maquera</div>
+                        <p>Herramientas y estructuras matemáticas discretas esenciales para el modelado en Ciencia de Datos.</p>
+                    </div>
+                    <a href="#" class="btn">→ Espacio Académico</a>
+                </div>
+
+            </div>
+        </section>
+
+        <section>
+            <h2>Mis Compañeros</h2>
+            <div class="grid">
+                <div class="card partner">
+                    <div>
+                        <h3>Annel</h3>
+                        <p>Visita el sitio web académico y el portafolio de proyectos de mi compañera de estudios en Ciencia de Datos.</p>
+                    </div>
+                    <a href="https://annel-nn.github.io/" target="_blank" class="btn partner">→ Visitar Sitio Web de Annel</a>
+                </div>
+            </div>
+        </section>
+
     </div>
-
-    <header>
-        <h1>Lucía Mateo Carpio</h1>
-        <p class="subtitle">Estudiante de Ciencia de Datos | UCSP</p>
-    </header>
-
-    <section>
-        <h2>Sobre Mí</h2>
-        <p>¡Hola! Soy estudiante de la carrera de Ciencia de Datos en la Universidad Católica San Pablo (UCSP). Me apasiona explorar el potencial de la tecnología y el análisis matemático para transformarlos en soluciones estratégicas y optimización de procesos. Constantemente busco expandir mis horizontes participando en eventos de innovación, practicando idiomas y colaborando en proyectos del rubro tecnológico.</p>
-    </section>
-
-    <section>
-        <h2>Mis Cursos Favoritos</h2>
-        <p>A lo largo de mi formación universitaria, estas son las materias que más han despertado mi interés y en las cuales he fortalecido mi base analítica y técnica:</p>
-
-        <div class="course-card">
-            <h3>Fundamentos de Programación</h3>
-            <div class="course-meta"><strong>Docente:</strong> Dr. Julio Santisteban Pablo</div>
-            <p>Un pilar fundamental donde desarrollé la lógica algorítmica y la resolución de problemas complejos mediante código de programación estructurado y eficiente.</p>
-            <a href="https://www.linkedin.com/in/santisteban" target="_blank">→ Perfil Académico del Docente</a>
-        </div>
-
-        <div class="course-card">
-            <h3>Introducción a Ciencias de la Computación</h3>
-            <div class="course-meta"><strong>Docente:</strong> Dr. Ernesto Cuadros Vargas</div>
-            <p>Este curso me brindó una comprensión profunda y global de la arquitectura de software, computación moderna y los fundamentos teóricos que rigen la tecnología actual.</p>
-            <a href="https://pe.linkedin.com/in/ecuadrosv" target="_blank">→ Perfil Académico del Docente</a>
-        </div>
-    </section>
-
-    <section>
-        <h2>Mis Compañeros</h2>
-        <p>Conoce los proyectos y portafolios académicos de otros estudiantes de la carrera:</p>
-        <div class="course-card" style="border-left-color: #2ecc71;">
-            <h3>Annel</h3>
-            <p>Visita el sitio web académico y portafolio de mi compañera de estudios.</p>
-            <a href="https://annel-nn.github.io/" target="_blank">→ Visitar Sitio Web de Annel</a>
-        </div>
-    </section>
 
 </body>
 </html>
