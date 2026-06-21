@@ -83,4 +83,256 @@
             border-radius: 20px;
             font-size: 0.9rem;
             font-weight: 600;
-            transition: background-color 0.2
+            transition: background-color 0.2s, transform 0.2s;
+            margin-top: 5px;
+            box-shadow: 0 2px 4px rgba(10, 102, 194, 0.2);
+        }
+
+        .btn-profile:hover {
+            background-color: #004182;
+            transform: translateY(-1px);
+        }
+
+        section {
+            margin-bottom: 50px;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            color: #0f172a;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 4px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
+
+        .about-card {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+
+        .about-card p {
+            margin: 0;
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            text-align: justify;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: var(--primary);
+        }
+
+        .card.partner::before {
+            background-color: var(--secondary);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            margin: 0 0 12px 0;
+            font-size: 1.3rem;
+            color: #0f172a;
+        }
+
+        .meta {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            background: #f1f5f9;
+            padding: 6px 12px;
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin: 0 0 20px 0;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .btn.partner {
+            color: var(--secondary);
+        }
+
+        .btn:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 640px) {
+            header h1 { font-size: 2rem; }
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="ascii-banner">
+ _      _   _   ____ ___    _    
+| |    | | | | / ___|_ _|  / \   
+| |    | | | || |    | |  / _ \  
+| |___ | |_| || |___ | | / ___ \ 
+|_____| \___/  \____|___/_/   \_\
+        </div>
+
+        <header>
+            <h1>Lucía Mateo Carpio</h1>
+            <p class="subtitle">Estudiante de Ciencia de Datos | UCSP</p>
+            <a href="https://www.linkedin.com/in/lucia-mateo-carpio-260840418/" target="_blank" class="btn-profile">👔 Conectar en LinkedIn</a>
+        </header>
+
+        <section>
+            <h2>Sobre Mí</h2>
+            <div class="about-card">
+                <p>¡Hola! Soy estudiante de la carrera de Ciencia de Datos en la Universidad Católica San Pablo (UCSP). Me apasiona explorar el potencial de la tecnología y el análisis matemático para transformarlos en soluciones estratégicas y optimización de procesos. Constantemente busco expandir mis horizontes participando en eventos de innovación, practicando idiomas y colaborando en proyectos del rubro tecnológico.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Mis Asignaturas</h2>
+            <div class="grid">
+                
+                <div class="card">
+                    <div>
+                        <h3>Fundamentos de Programación</h3>
+                        <div class="meta">Docente: Dr. Julio Santisteban Pablo</div>
+                        <p>Desarrollo de la lógica algorítmica y resolución de problemas complejos mediante código estructurado y eficiente.</p>
+                    </div>
+                    <a href="https://www.linkedin.com/in/santisteban" target="_blank" class="btn">→ Perfil del Docente</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Introducción a Ciencias de la Computación</h3>
+                        <div class="meta">Docente: Dr. Ernesto Cuadros Vargas</div>
+                        <p>Comprensión global de la arquitectura de software, computación moderna y sus fundamentos teóricos.</p>
+                    </div>
+                    <a href="https://pe.linkedin.com/in/ecuadrosv" target="_blank" class="btn">→ Perfil del Docente</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Introducción a la Vida Universitaria</h3>
+                        <div class="meta">Docente: Lilian Esperanza Moscoso Prieto</div>
+                        <p>Inmersión en la cultura e identidad universitaria, herramientas de aprendizaje y adaptación académica.</p>
+                    </div>
+                    <a href="https://pe.linkedin.com/in/lilian-moscoso-prieto-53345390" target="_blank" class="btn">→ Perfil de la Docente</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Introducción a Computación</h3>
+                        <div class="meta">Docente: Rosmery Quispe Zavala</div>
+                        <p>Estudio de los elementos introductorios de los sistemas de cómputo y flujos tecnológicos esenciales.</p>
+                    </div>
+                    <a href="#" class="btn">→ Espacio Académico</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Comunicación I</h3>
+                        <div class="meta">Docente: Angel Rodriguez Cruz</div>
+                        <p>Desarrollo de habilidades de expresión oral, comprensión lectora y redacción de textos académicos.</p>
+                    </div>
+                    <a href="https://pe.linkedin.com/in/angel-rodriguez-cruz-58b78b85" target="_blank" class="btn">→ Perfil del Docente</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Lógica</h3>
+                        <div class="meta">Docente: Dra. Ana Lucia Huerta Salinas</div>
+                        <p>Estructuras de razonamiento formal, proposiciones fundamentales y bases lógicas para la ciencia.</p>
+                    </div>
+                    <a href="https://pe.linkedin.com/in/ana-lucia-huerta-salinas-a89600b4" target="_blank" class="btn">→ Perfil de la Docente</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <h3>Fundamentos Matemáticos para Computación</h3>
+                        <div class="meta">Docente: Meyber Vargas Maquera</div>
+                        <p>Herramientas y estructuras matemáticas discretas esenciales para el modelado en Ciencia de Datos.</p>
+                    </div>
+                    <a href="#" class="btn">→ Espacio Académico</a>
+                </div>
+
+            </div>
+        </section>
+
+        <section>
+            <h2>Mis Compañeros</h2>
+            <div class="grid">
+                <div class="card partner">
+                    <div>
+                        <h3>Annel</h3>
+                        <p>Visita el sitio web académico y el portafolio de proyectos de mi compañera de estudios en Ciencia de Datos.</p>
+                    </div>
+                    <a href="https://annel-nn.github.io/" target="_blank" class="btn partner">→ Visitar Sitio Web de Annel</a>
+                </div>
+
+                <div class="card partner">
+                    <div>
+                        <h3>Fernando</h3>
+                        <p>Visita el sitio web académico y el portafolio de proyectos de mi compañero de estudios en Ciencia de Datos.</p>
+                    </div>
+                    <a href="https://fernandopamo123.github.io/portafolio-cs1/" target="_blank" class="btn partner">→ Visitar Sitio Web de Fernando</a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
